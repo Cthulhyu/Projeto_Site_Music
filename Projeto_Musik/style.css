@@ -27,6 +27,11 @@ body {
   padding-top: 3vw;
   padding-bottom: 3vw;
   justify-content: center;
+  background: #000000;
+  background: -webkit-linear-gradient(-135deg, #0c526e, #000000);
+  background: -o-linear-gradient(-135deg, #000000, #000000 );
+  background: -moz-linear-gradient(-135deg, #000000, #103949);
+  background: linear-gradient(-135deg, #0c526c, #000000);
 }
 
 *,
@@ -59,9 +64,8 @@ a {
 }
 
 .app {
-  min-height: 80vh;
   width: 95%;
-  max-width: 1600px;
+  max-width: 2800px;
   background-color: var(--c-gray-800);
   padding: 2vw 4vw 6vw;
   display: flex;
@@ -177,7 +181,7 @@ a {
   padding-top: 1rem;
   border-bottom: 1px solid var(--c-gray-600);
 }
-@media (max-width: 1200px) {
+@media  {
   .logo {
     border-bottom: 0;
   }
@@ -187,8 +191,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+
 }
 
 .logo-title {
