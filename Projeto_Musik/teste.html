@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Amigos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #3b5998;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .friend-list {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .friend-item {
+            background-color: #fff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .friend-item img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+
+        .friend-item h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .friend-item p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .button {
+            background-color: #3b5998;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #2d4373;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Minha Lista de Amigos</h1>
+</header>
+
+<ul class="friend-list">
+    <li class="friend-item">
+        <img src="https://via.placeholder.com/50" alt="João">
+        <div>
+            <h3>João Silva</h3>
+            <p>Gosto de programar e jogar futebol.</p>
+        </div>
+        <a href="javascript:void(0);" class="button" onclick="viewProfile('João Silva')">Ver Perfil</a>
+    </li>
+
+    <li class="friend-item">
+        <img src="https://via.placeholder.com/50" alt="Ana">
+        <div>
+            <h3>Ana Souza</h3>
+            <p>Amo viajar e tirar fotos.</p>
+        </div>
+        <a href="javascript:void(0);" class="button" onclick="viewProfile('Ana Souza')">Ver Perfil</a>
+    </li>
+
+    <li class="friend-item">
+        <img src="https://via.placeholder.com/50" alt="Lucas">
+        <div>
+            <h3>Lucas Oliveira</h3>
+            <p>Gosto de tocar guitarra e assistir filmes.</p>
+        </div>
+        <a href="javascript:void(0);" class="button" onclick="viewProfile('Lucas Oliveira')">Ver Perfil</a>
+    </li>
+
+    <li class="friend-item">
+        <img src="https://via.placeholder.com/50" alt="Maria">
+        <div>
+            <h3>Maria Costa</h3>
+            <p>Sou apaixonada por arte e música clássica.</p>
+        </div>
+        <a href="javascript:void(0);" class="button" onclick="viewProfile('Maria Costa')">Ver Perfil</a>
+    </li>
+
+    <li class="friend-item">
+        <img src="https://via.placeholder.com/50" alt="Pedro">
+        <div>
+            <h3>Pedro Santos</h3>
+            <p>Adoro cozinhar e praticar esportes.</p>
+        </div>
+        <a href="javascript:void(0);" class="button" onclick="viewProfile('Pedro Santos')">Ver Perfil</a>
+    </li>
+</ul>
+
+<script>
+    function viewProfile(friendName) {
+        alert('Você clicou para ver o perfil de ' + friendName);
+        // Aqui você pode adicionar um redirecionamento real para a página do perfil:
+        // window.location.href = '/perfil/' + friendName.toLowerCase().replace(" ", "-");
+    }
+</script>
+
+</body>
+</html>

@@ -4,25 +4,47 @@
   <meta charset="UTF-8">
   <title>CodePen - Dark UI - Bank dashboard concept</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+	
 <link rel="stylesheet" href="style.css">
 
 </head>
+	<style>
+		.friend-list {
+			list-style-type: none;
+			padding: 0;
+			margin-top: 20px;
+			max-width: 600px;
+			margin: 0 auto;
+		}
+		.fund_bot{
+			color: #000000;
+			background:#0c526c;
+		}
+		.friend-item {
+			background-color:black;
+			padding: 15px;
+			margin: 10px 0;
+			border-radius: 8px;
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+	</style>
 <body>
 <!-- partial:index.partial.html -->
 <div class="app">
 	<header class="app-header">
-		<div class="app-header-logo">
+		<div class=" col-md-7 row">
 			<div class="logo">
-				<span class="logo-icon">
-					<img src="Logo2.png" />
-				</span>
-				<h1 class="logo-title">
+					<img class="img-thumbnail" src="Logo2.png" />
+				<h1 class="logo-title fs-3">
 					<span>Musik</span>
 					<span>Boaventura</span>
 				</h1>
 			</div>
 		</div>
-		<div class="app-header-navigation">
+		<div class="app-header-navigation row">
 			<div class="tabs">
 				<a href="#">
 					Músicas
@@ -37,10 +59,10 @@
 					Compor
 				</a>
 				<a href="#">
-					System
+					Chat
 				</a>
 				<a href="#">
-					Business
+					Teoria
 				</a>
 			</div>
 		</div>
@@ -80,19 +102,19 @@
 				</a>
 				<a href="#">
 					<i class="ph-swap"></i>
-					<span>Transfers</span>
+					<span>Playlist</span>
 				</a>
 				<a href="#">
 					<i class="ph-file-text"></i>
-					<span>Templates</span>
+					<span>Avaliações</span>
 				</a>
 				<a href="#">
 					<i class="ph-globe"></i>
-					<span>SWIFT</span>
+					<span>Random</span>
 				</a>
 				<a href="#">
-					<i class="ph-clipboard-text"></i>
-					<span>Exchange</span>
+					<i class="ph-gear"></i>
+					<span>Configurações</span>
 				</a>
 			</nav>
 			<footer class="footer">
@@ -252,13 +274,13 @@
 			<section class="payment-section">
 				<h2>Amigos Online</h2>
 				<div>
-
-				</div>
-				<div class="payment-section-footer">
-					<button class="settings-button">
-						<i class="ph-gear"></i>
-						<span>Configurações</span>
-					</button>
+					<ul class="friend-list">
+						<li class="friend-item">
+							<div>
+								<h3>João Silva</h3>
+							</div>
+							<input class="btn btn-white btn-animate" type="button" value="Ver Mais">
+						</li>
 				</div>
 			</section>
 		</div>
