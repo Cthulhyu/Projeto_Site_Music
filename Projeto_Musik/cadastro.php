@@ -8,7 +8,7 @@ $email = $_REQUEST['email'];
 $data = $_REQUEST['data'];
 
 if ($id) {
-    $sql = "UPDATE aluno SET nome = :nome, senha = :senha, email = :email, data = :data
+    $sql = "UPDATE Usuario SET nome = :nome, senha = :senha, email = :email, data = :data
     WHERE idUsuario = :idUsuario";
     $stmt = $conexao->prepare($sql);
     $stmt->bindParam(':idUsuario', $idUsuario);

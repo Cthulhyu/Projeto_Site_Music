@@ -8,7 +8,7 @@ $email = $_REQUEST['email'];
 $data = $_REQUEST['data'];
 
 if ($id) {
-    $sql = "UPDATE aluno SET nome = :nome, senha = :senha, email = :email, data = :data
+    $sql = "UPDATE usuario SET nome = :nome, senha = :senha, email = :email, data = :data
     WHERE idUsuario = :idUsuario";
     $stmt = $conexao->prepare($sql);
     $stmt->bindParam(':idUsuario', $idUsuario);
@@ -23,7 +23,7 @@ if ($id) {
 $stmt->bindParam(':email', $email);
 $stmt->bindParam(':senha', $senha);
 $stmt->bindParam(':nome', $nome);
-$stmt->bindParam(':senha', $senha);
+$stmt->bindParam(':data', $data);
 $stmt->execute();
 header("Location: perfil.html?mensagem=$mensagem");
 ?>
