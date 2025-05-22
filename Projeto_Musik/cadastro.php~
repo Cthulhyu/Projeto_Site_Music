@@ -23,7 +23,7 @@ if ($id) {
 $stmt->bindParam(':email', $email);
 $stmt->bindParam(':senha', $senha);
 $stmt->bindParam(':nome', $nome);
-$stmt->bindParam(':data', $data);
+$stmt->bindParam(':senha', $senha);
 $stmt->execute();
 header("Location: perfil.html?mensagem=$mensagem");
 ?>

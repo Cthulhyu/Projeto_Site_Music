@@ -1,12 +1,12 @@
-drop database sitemusica;
+DROP DATABASE sitemusica;
 CREATE SCHEMA IF NOT EXISTS `sitemusica` DEFAULT CHARACTER SET utf8 ;
 USE `sitemusica`;
 -- -----------------------------------------------------
 -- Table `sitemusica`.`Usuario`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sitemusica`.`Usuario` (
-                                                      `idUsuario` INT NOT NULL AUTO_INCREMENT,
-                                                      `nome` VARCHAR(45) NULL,
+     `idUsuario` INT NOT NULL AUTO_INCREMENT,
+     `nome` VARCHAR(45) NULL,
     `email` VARCHAR(100) NULL,
     `biografia` TEXT NULL,
     `senha` VARCHAR(50) NULL,
@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `sitemusica`.`Usuario` (
     `data_ini` DATE NULL,
     `data_nasc` DATE NULL,
     PRIMARY KEY (`idUsuario`))
-    ENGINE = InnoDB;amigosamigosusuario
+    ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -90,14 +90,3 @@ CREATE TABLE IF NOT EXISTS `sitemusica`.`amigos` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
     ENGINE = InnoDB;
-
-INSERT INTO sitemusica.Usuario (nome, email, biografia, senha, minha_music, data_ini, data_nasc)
-VALUES (
-           'Gabriel Boaventura',
-           'gabriel@gmail.com',
-           'Cantor e compositor de Choro.',
-           '123456',  -- ⚠️ Senha deveria ser criptografada
-           'Minha Primeira Música',
-           '2025-05-22',       -- data_ini (data de início)
-           '1995-03-15'        -- data_nasc (data de nascimento)
-       );
