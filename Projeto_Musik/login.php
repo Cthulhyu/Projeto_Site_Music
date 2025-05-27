@@ -12,8 +12,8 @@ $stmt->execute();
 if ($stmt->rowCount() > 0) {
     session_start();
     $_SESSION['email'] = $email;
-    header("Location: perfil.html");
+    header("Location: perfil.php");
 } else {
-    header("Location: index.php?m=Usuário burro e\ou senha invalida!");
+    header("Location: login.php?m=Usuário burro e\ou senha invalida!");
 }
 ?>

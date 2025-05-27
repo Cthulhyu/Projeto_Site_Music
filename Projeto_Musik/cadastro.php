@@ -1,29 +1,33 @@
 <?php
-
 include_once("conexao_bd.php");
-$id = isset($_REQUEST['idUsuario']) ? $_REQUEST['idUsuario'] : null;
+
 $nome = $_REQUEST['nome'];
 $senha = $_REQUEST['senha'];
 $email = $_REQUEST['email'];
 $data = $_REQUEST['data'];
 
-if ($id) {
-    $sql = "UPDATE Usuario SET nome = :nome, senha = :senha, email = :email, data = :data
-    WHERE idUsuario = :idUsuario";
-    $stmt = $conexao->prepare($sql);
-    $stmt->bindParam(':idUsuario', $idUsuario);
-    $mensagem = "Registro atualizado com sucesso.";
-} else {
-    $sql = "INSERT INTO usuario (nome, data, email, senha) 
-        VALUES (:nome, :data, :email, :senha)";
-    $stmt = $conexao->prepare($sql);
-    $mensagem = "Registro salvo com sucesso.";
+// Verifica se o email já existe
+$verifica = $conexao->prepare("SELECT COUNT(*) FROM usuario WHERE email = :email");
+$verifica->bindParam(':email', $email);
+$verifica->execute();
+$existe = $verifica->fetchColumn();
 
+if ($existe > 0) {
+    // Redireciona com mensagem de erro
+    header("Location: cadastro.html?mensagem=Erro: E-mail já cadastrado.");
+    exit;
 }
+
+// Insere novo usuário
+$sql = "INSERT INTO usuario (nome, data_nasc, email, senha) 
+        VALUES (:nome, :data, :email, :senha)";
+$stmt = $conexao->prepare($sql);
 $stmt->bindParam(':email', $email);
 $stmt->bindParam(':senha', $senha);
 $stmt->bindParam(':nome', $nome);
 $stmt->bindParam(':data', $data);
 $stmt->execute();
-header("Location: perfil.html?mensagem=$mensagem");
+
+$mensagem = "Registro salvo com sucesso.";
+header("Location: login.php?mensagem=$mensagem");
 ?>

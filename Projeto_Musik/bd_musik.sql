@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `sitemusica`.`Usuario` (
     `data_ini` DATE NULL,
     `data_nasc` DATE NULL,
     PRIMARY KEY (`idUsuario`))
-    ENGINE = InnoDB;amigosamigosusuario
+    ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
