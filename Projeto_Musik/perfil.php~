@@ -5,12 +5,11 @@ include_once("conexao_bd.php");
 // Verifica se o usuário está logado (ex: email na sessão)
 if (!isset($_SESSION['email'])) {
     // redireciona para login se não estiver logado
-    header("Location: login.html");
+    header("Location: login.php");
     exit;
 }
 
 $email = $_SESSION['email'];
-
 
 // Busca o nome do usuário pelo email
 $sql = "SELECT nome FROM usuario WHERE email = :email LIMIT 1";

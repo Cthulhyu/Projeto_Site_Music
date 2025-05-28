@@ -1,6 +1,4 @@
 <?php
-?>
-<?php
 session_start();
 include_once("conexao_bd.php");
 

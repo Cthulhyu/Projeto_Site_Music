@@ -29,5 +29,5 @@ $stmt->bindParam(':data', $data);
 $stmt->execute();
 
 $mensagem = "Registro salvo com sucesso.";
-header("Location: login.php?mensagem=$mensagem");
+header("Location: login.html?mensagem=$mensagem");
 ?>

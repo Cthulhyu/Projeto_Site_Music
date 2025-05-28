@@ -15,5 +15,6 @@ if ($stmt->rowCount() > 0) {
     header("Location: perfil.php");
 } else {
     header("Location: login.php?m=Usuário burro e\ou senha invalida!");
+    header("location: login.php");
 }
 ?>
