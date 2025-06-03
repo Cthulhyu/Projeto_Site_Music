@@ -31,6 +31,10 @@ $nome = $usuario ? $usuario['nome'] : 'Usuário';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 
     <link rel="stylesheet" href="style.css">
+    curl --request GET
+    --url 'https://spotify23.p.rapidapi.com/search/?type=multi&offset=0&limit=10&numberOfTopResults=5'
+    --header 'x-rapidapi-host: spotify23.p.rapidapi.com'
+    --header 'x-rapidapi-key: 97e7e8b6ebmshe5b1b2cfff19c4bp12a491jsn461f0efb70dd'
 
 </head>
 <style>
