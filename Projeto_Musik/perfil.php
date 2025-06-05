@@ -21,6 +21,12 @@ $stmt->execute();
 $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
 $nome = $usuario ? $usuario['nome'] : 'Usuário';
+/* API DO SPOTIFY
+  *--curl --request GET
+    --url 'https://spotify23.p.rapidapi.com/search/?type=multi&offset=0&limit=10&numberOfTopResults=5'
+    --header 'x-rapidapi-host: spotify23.p.rapidapi.com'
+    --header 'x-rapidapi-key: 97e7e8b6ebmshe5b1b2cfff19c4bp12a491jsn461f0efb70dd'
+    */
 ?>
 
 <!DOCTYPE html>
@@ -31,10 +37,7 @@ $nome = $usuario ? $usuario['nome'] : 'Usuário';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 
     <link rel="stylesheet" href="style.css">
-    curl --request GET
-    --url 'https://spotify23.p.rapidapi.com/search/?type=multi&offset=0&limit=10&numberOfTopResults=5'
-    --header 'x-rapidapi-host: spotify23.p.rapidapi.com'
-    --header 'x-rapidapi-key: 97e7e8b6ebmshe5b1b2cfff19c4bp12a491jsn461f0efb70dd'
+
 
 </head>
 <style>
@@ -75,22 +78,22 @@ $nome = $usuario ? $usuario['nome'] : 'Usuário';
         </div>
         <div class="app-header-navigation row">
             <div class="tabs">
-                <a href="#">
+                <a href="paginas%20do%20perfil/musicas.html type=">
                     Músicas
                 </a>
-                <a href="#" class="active">
+                <a href="paginas%20do%20perfil/biblioteca.html" >
                     Biblioteca
                 </a>
-                <a href="#">
+                <a href="paginas%20do%20perfil/amigos.html">
                     Amigos
                 </a>
-                <a href="#">
+                <a href="paginas%20do%20perfil/compor.html">
                     Compor
                 </a>
-                <a href="#">
+                <a href="paginas%20do%20perfil/chat.html">
                     Chat
                 </a>
-                <a href="#">
+                <a href="paginas%20do%20perfil/teoria.html" >
                     Teoria
                 </a>
             </div>

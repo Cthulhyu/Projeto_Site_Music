@@ -5,8 +5,8 @@ USE `sitemusica`;
 -- Table `sitemusica`.`Usuario`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sitemusica`.`Usuario` (
-                                                      `idUsuario` INT NOT NULL AUTO_INCREMENT,
-                                                      `nome` VARCHAR(45) NULL,
+    `idUsuario` INT NOT NULL AUTO_INCREMENT,
+    `nome` VARCHAR(45) NULL,
     `email` VARCHAR(100) NULL,
     `biografia` TEXT NULL,
     `senha` VARCHAR(50) NULL,
@@ -21,8 +21,8 @@ CREATE TABLE IF NOT EXISTS `sitemusica`.`Usuario` (
 -- Table `sitemusica`.`Musica`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sitemusica`.`Musica` (
-                                                     `idMusica` INT NOT NULL AUTO_INCREMENT,
-                                                     `genero` VARCHAR(45) NULL,
+    `idMusica` INT NOT NULL AUTO_INCREMENT,
+    `genero` VARCHAR(45) NULL,
     `data` DATE NULL,
     `artista` VARCHAR(45) NULL,
     PRIMARY KEY (`idMusica`))
@@ -33,8 +33,8 @@ CREATE TABLE IF NOT EXISTS `sitemusica`.`Musica` (
 -- Table `sitemusica`.`composicao`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sitemusica`.`composicao` (
-                                                         `idcomposicao` INT NOT NULL AUTO_INCREMENT,
-                                                         `titulo` VARCHAR(45) NULL,
+    `idcomposicao` INT NOT NULL AUTO_INCREMENT,
+    `titulo` VARCHAR(45) NULL,
     `composicaocol` VARCHAR(45) NULL,
     `Usuario_idUsuario` INT NOT NULL,
     `Documento` blob,
@@ -52,9 +52,9 @@ CREATE TABLE IF NOT EXISTS `sitemusica`.`composicao` (
 -- Table `sitemusica`.`Usuario_das_Musica`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sitemusica`.`Usuario_das_Musica` (
-                                                                 `Usuario_idUsuario` INT NOT NULL,
-                                                                 `Musica_idMusica` INT NOT NULL,
-                                                                 PRIMARY KEY (`Usuario_idUsuario`, `Musica_idMusica`),
+     `Usuario_idUsuario` INT NOT NULL,
+     `Musica_idMusica` INT NOT NULL,
+      PRIMARY KEY (`Usuario_idUsuario`, `Musica_idMusica`),
     INDEX `fk_Usuario_has_Musica_Musica1_idx` (`Musica_idMusica` ASC) VISIBLE,
     INDEX `fk_Usuario_has_Musica_Usuario1_idx` (`Usuario_idUsuario` ASC) VISIBLE,
     CONSTRAINT `fk_Usuario_has_Musica_Usuario1`
@@ -74,9 +74,9 @@ CREATE TABLE IF NOT EXISTS `sitemusica`.`Usuario_das_Musica` (
 -- Table `sitemusica`.`amigos`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sitemusica`.`amigos` (
-                                                     `idUsuario` INT NOT NULL,
-                                                     `idAmigo` INT NOT NULL,
-                                                     PRIMARY KEY (`idUsuario`, `idAmigo`),
+    `idUsuario` INT NOT NULL,
+    `idAmigo` INT NOT NULL,
+    PRIMARY KEY (`idUsuario`, `idAmigo`),
     INDEX `fk_Usuario_has_Usuario_Usuario2_idx` (`idAmigo` ASC) VISIBLE,
     INDEX `fk_Usuario_has_Usuario_Usuario1_idx` (`idUsuario` ASC) VISIBLE,
     CONSTRAINT `fk_Usuario_has_Usuario_Usuario1`
