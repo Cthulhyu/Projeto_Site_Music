@@ -31,14 +31,19 @@
         <div class="wrap-login100 justify-content-center ">
             <form class="login100-form" method="post" enctype="multipart/form-data">
                 <div class ="form-group row justify-content-center">
-                <img class="img-fluid mb-5 w-50 d-flex rounded-4" id="imagem-preview" src="#" alt="Prévia da imagem">
+                <img class="img-fluid mb-5 w-50 d-flex " id="imagem-preview" src="#" alt="Prévia da imagem">
                 <input type="file" id="foto" class="form-control">
         </div>
                 <h1 class="login100-form-title">Selecione seus Gêneros Favoritos</h1>
 
-                <div id="genre-list">
-                    <p>Carregando gêneros...</p>
-                </div>
+
+                <select id="genres" onchange="teste()">
+                    <option>Carregando...</option>
+                </select>
+
+                <table id="resultado">
+
+                </table>
 
                 <button id="save-genres">Salvar Gêneros Selecionados</button>
 
@@ -87,6 +92,43 @@
             previewImagem.src = '#'; // Limpa a imagem caso nenhum ficheiro seja selecionado
         }
     });
+
+
 </script>
+
+<script>
+    $(document).ready(function() {
+        var apiKey = '1ff27e8a9540dcbebe9aeb2b41709852'; // substitua pela sua API key do Last.fm
+        var url = 'https://ws.audioscrobbler.com/2.0/?method=tag.getTopTags&api_key=' + apiKey + '&format=json';
+
+        $.ajax({
+            url: url,
+            method: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                var tags = data.toptags.tag;
+                var $select = $('#genres');
+                $select.empty(); // limpa o combobox
+
+                if (tags && tags.length > 0) {
+                    $.each(tags, function(index, tag) {
+                        // adiciona opção ao combobox
+                        $select.append($('<option></option>').val(tag.name).text(tag.name));
+                    });
+                } else {
+                    $select.append($('<option></option>').text('Nenhum gênero encontrado'));
+                }
+            },
+            error: function() {
+                $('#genres').empty().append($('<option></option>').text('Erro ao carregar gêneros'));
+            }
+        });
+    });
+
+    function teste(){
+        alert(0);
+    }
+</script>
+
 </body>
 </html>
