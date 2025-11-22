@@ -1,35 +1,3 @@
-<?php
-session_start();
-include_once("conexao_bd.php");
-
-// Verifica se o usuário está logado (ex: email na sessão)
-if (!isset($_SESSION['email'])) {
-    // redireciona para login se não estiver logado
-    header("Location: login.html");
-    exit;
-}
-
-$email = $_SESSION['email'];
-
-
-// Busca o nome do usuário pelo email
-$sql = "SELECT nome FROM Usuario WHERE email = :email LIMIT 1";
-
-$stmt = $conexao->prepare($sql);
-$stmt->bindParam(':email', $email);
-$stmt->execute();
-
-$usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-
-$nome = $usuario ? $usuario['nome'] : 'Usuário';
-/* API DO SPOTIFY
-  *--curl --request GET
-    --url 'https://spotify23.p.rapidapi.com/search/?type=multi&offset=0&limit=10&numberOfTopResults=5'
-    --header 'x-rapidapi-host: spotify23.p.rapidapi.com'
-    --header 'x-rapidapi-key: 97e7e8b6ebmshe5b1b2cfff19c4bp12a491jsn461f0efb70dd'
-    */
-?>
-
 <!DOCTYPE html>
 <html lang="en" >
 <head>

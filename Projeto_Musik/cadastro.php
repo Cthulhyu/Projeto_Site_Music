@@ -7,7 +7,7 @@ $email = $_REQUEST['email'];
 $data = $_REQUEST['data'];
 
 // Verifica se o email já existe
-$verifica = $conexao->prepare("SELECT COUNT(*) FROM usuario WHERE email = :email");
+$verifica = $conexao->prepare("SELECT COUNT(*) FROM Usuario WHERE email = :email");
 $verifica->bindParam(':email', $email);
 $verifica->execute();
 $existe = $verifica->fetchColumn();
@@ -19,7 +19,7 @@ if ($existe > 0) {
 }
 
 // Insere novo usuário
-$sql = "INSERT INTO usuario (nome, data_nasc, email, senha) 
+$sql = "INSERT INTO Usuario (nome, data_nasc, email, senha) 
         VALUES (:nome, :data, :email, :senha)";
 $stmt = $conexao->prepare($sql);
 $stmt->bindParam(':email', $email);

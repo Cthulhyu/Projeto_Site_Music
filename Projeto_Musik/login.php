@@ -1,20 +1,31 @@
 <?php
+session_start();
 include_once("conexao_bd.php");
-    $senha = $_REQUEST['pass'];
-    $email = $_REQUEST['email'];
 
-    $sql = "SELECT * FROM Usuario WHERE email = :email AND senha = :senha";
+// RECEBE DADOS DO FORMULÁRIO
+$email = $_POST['email'];
+$senha = $_POST['pass'];
+
+// PROCURA NO BANCO
+$sql = "SELECT * FROM Usuario WHERE email = :email AND senha = :senha LIMIT 1";
 
 $stmt = $conexao->prepare($sql);
 $stmt->bindParam(':email', $email);
-$stmt->bindParam(':senha', ($senha));
+$stmt->bindParam(':senha', $senha);
 $stmt->execute();
+
+// SE ENCONTROU USUÁRIO
 if ($stmt->rowCount() > 0) {
-    session_start();
+
     $_SESSION['email'] = $email;
+
     header("Location: perfil.php");
+    exit;
+
 } else {
-    header("Location: login.php?m=Usuário burro e\ou senha invalida!");
-    header("location: login.php");
+
+    header("Location: login.html?erro=1");
+    exit;
+
 }
 ?>
