@@ -2,19 +2,22 @@
 include_once("conexao_bd.php");
 
 $idUsuario = $_POST['idUsuario'];
-$generos = isset($_POST['generos']) ? explode(",", $_POST['generos']) : [];
+$generos = isset($_POST['generos']) ? $_POST['generos'] : [];
 
-// --- SALVAR FOTO --- //
-$$fotoNome = null;
 
+$fotoNome = null;
+
+// ---------------------------------------------------
+// SALVAR FOTO
+// ---------------------------------------------------
 if (!empty($_FILES['foto']['name'])) {
 
     $extensao = pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION);
     $fotoNome = "foto_" . $idUsuario . "." . $extensao;
 
-    // salva dentro de /fotoperfil/
     move_uploaded_file($_FILES['foto']['tmp_name'], "fotoperfil/" . $fotoNome);
 
+    // Atualizar no banco
     $sqlFoto = "UPDATE Usuario SET foto = :foto WHERE idUsuario = :id";
     $stmtFoto = $conexao->prepare($sqlFoto);
     $stmtFoto->bindParam(':foto', $fotoNome);
@@ -22,19 +25,43 @@ if (!empty($_FILES['foto']['name'])) {
     $stmtFoto->execute();
 }
 
-// --- SALVAR GÊNEROS --- //
-// sua relação N:N usa Usuario_das_Musica
-foreach ($generos as $g) {
+// ---------------------------------------------------
+// SALVAR GÊNEROS (cria se não existir)
+// ---------------------------------------------------
+foreach ($generos as $nomeGenero) {
 
-    // Insert ignorando duplicatas
-    $sqlGen = "INSERT INTO Usuario_das_Musica (Usuario_idUsuario, Musica_idMusica)
-               VALUES (:idUsuario, :idMusica)";
-    $stmtGen = $conexao->prepare($sqlGen);
-    $stmtGen->bindParam(':idUsuario', $idUsuario);
-    $stmtGen->bindParam(':idMusica', $g);
-    $stmtGen->execute();
+    // 1. Verificar se existe
+    $sqlBusca = "SELECT idMusica FROM Musica WHERE genero = :g LIMIT 1";
+    $stmtBusca = $conexao->prepare($sqlBusca);
+    $stmtBusca->bindParam(':g', $nomeGenero);
+    $stmtBusca->execute();
+
+    $resultado = $stmtBusca->fetch(PDO::FETCH_ASSOC);
+
+    if ($resultado) {
+        $idGenero = $resultado['idMusica'];
+    } else {
+        // 2. Criar novo gênero
+        $sqlInsere = "INSERT INTO Musica (genero, data, artista)
+                      VALUES (:g, NOW(), 'Desconhecido')";
+        $stmtInsere = $conexao->prepare($sqlInsere);
+        $stmtInsere->bindParam(':g', $nomeGenero);
+        $stmtInsere->execute();
+
+        $idGenero = $conexao->lastInsertId();
+    }
+
+    // 3. Criar relação N:N
+    $sqlRelacao = "
+        INSERT IGNORE INTO Usuario_das_Musica (Usuario_idUsuario, Musica_idMusica)
+        VALUES (:idUsuario, :idMusica)
+    ";
+    $stmtRelacao = $conexao->prepare($sqlRelacao);
+    $stmtRelacao->bindParam(':idUsuario', $idUsuario);
+    $stmtRelacao->bindParam(':idMusica', $idGenero);
+    $stmtRelacao->execute();
 }
 
-// REDIRECIONA PARA PERFIL FINAL
-header("Location: perfil_final.php?id=" . $idUsuario);
+header("Location: perfil.php?id=" . $idUsuario);
 exit;
+?>

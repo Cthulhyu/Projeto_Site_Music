@@ -27,7 +27,10 @@ $stmt->bindParam(':senha', $senha);
 $stmt->bindParam(':nome', $nome);
 $stmt->bindParam(':data', $data);
 $stmt->execute();
+// Pegando o ID do usuário salvo
+$id_user = $conexao->lastInsertId();
 
-$mensagem = "Registro salvo com sucesso.";
-header("Location: login.html?mensagem=$mensagem");
+// Redireciona para a etapa 2
+header("Location: cadastro_perfil.php?id=$id_user");
+exit;
 ?>

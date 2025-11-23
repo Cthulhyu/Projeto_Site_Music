@@ -19,6 +19,7 @@ CREATE TABLE
         `minha_music` VARCHAR(45) NULL,
         `data_ini` DATE NULL,
         `data_nasc` DATE NULL,
+        `foto` VARCHAR(255) NULL,
         PRIMARY KEY (`idUsuario`)
     ) ENGINE = InnoDB;
 
