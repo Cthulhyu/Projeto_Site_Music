@@ -1,9 +1,9 @@
 <?php
-$host = "127.0.0.1";
-$user = "root";
+$host = "db";          // Nome do serviço do MySQL no docker-compose
+$user = "root";        // Usuário que você configurou
 $port = "3306";
-$password = "123456";
-$dbname = "sitemusica";
+$password = "musik";   // Senha definida no docker-compose
+$dbname = "musik";     // Nome do banco criado
 
 try {
     $conexao = new PDO(

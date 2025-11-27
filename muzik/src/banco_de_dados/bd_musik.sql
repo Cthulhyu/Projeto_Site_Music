@@ -1,4 +1,3 @@
-drop database sitemusica;
 
 CREATE SCHEMA IF NOT EXISTS `sitemusica` DEFAULT CHARACTER
 SET
@@ -46,7 +45,7 @@ CREATE TABLE
         `Usuario_idUsuario` INT NOT NULL,
         `Documento` blob,
         PRIMARY KEY (`idcomposicao`),
-        INDEX `fk_composicao_Usuario1_idx` (`Usuario_idUsuario` ASC) VISIBLE,
+        INDEX `fk_composicao_Usuario1_idx` (`Usuario_idUsuario` ASC) ,
         CONSTRAINT `fk_composicao_Usuario1` FOREIGN KEY (`Usuario_idUsuario`) REFERENCES `sitemusica`.`Usuario` (`idUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
     ) ENGINE = InnoDB;
 
@@ -58,8 +57,8 @@ CREATE TABLE
         `Usuario_idUsuario` INT NOT NULL,
         `Musica_idMusica` INT NOT NULL,
         PRIMARY KEY (`Usuario_idUsuario`, `Musica_idMusica`),
-        INDEX `fk_Usuario_has_Musica_Musica1_idx` (`Musica_idMusica` ASC) VISIBLE,
-        INDEX `fk_Usuario_has_Musica_Usuario1_idx` (`Usuario_idUsuario` ASC) VISIBLE,
+        INDEX `fk_Usuario_has_Musica_Musica1_idx` (`Musica_idMusica` ASC) ,
+        INDEX `fk_Usuario_has_Musica_Usuario1_idx` (`Usuario_idUsuario` ASC) ,
         CONSTRAINT `fk_Usuario_has_Musica_Usuario1` FOREIGN KEY (`Usuario_idUsuario`) REFERENCES `sitemusica`.`Usuario` (`idUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION,
         CONSTRAINT `fk_Usuario_has_Musica_Musica1` FOREIGN KEY (`Musica_idMusica`) REFERENCES `sitemusica`.`Musica` (`idMusica`) ON DELETE NO ACTION ON UPDATE NO ACTION
     ) ENGINE = InnoDB;
@@ -72,8 +71,8 @@ CREATE TABLE
         `idUsuario` INT NOT NULL,
         `idAmigo` INT NOT NULL,
         PRIMARY KEY (`idUsuario`, `idAmigo`),
-        INDEX `fk_Usuario_has_Usuario_Usuario2_idx` (`idAmigo` ASC) VISIBLE,
-        INDEX `fk_Usuario_has_Usuario_Usuario1_idx` (`idUsuario` ASC) VISIBLE,
+        INDEX `fk_Usuario_has_Usuario_Usuario2_idx` (`idAmigo` ASC) ,
+        INDEX `fk_Usuario_has_Usuario_Usuario1_idx` (`idUsuario` ASC) ,
         CONSTRAINT `fk_Usuario_has_Usuario_Usuario1` FOREIGN KEY (`idUsuario`) REFERENCES `sitemusica`.`Usuario` (`idUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION,
         CONSTRAINT `fk_Usuario_has_Usuario_Usuario2` FOREIGN KEY (`idAmigo`) REFERENCES `sitemusica`.`Usuario` (`idUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
     ) ENGINE = InnoDB;

@@ -1,8 +1,6 @@
-version: '3.3'
-
 services:
   apache:
-    image: php:7.4-apache
+    build: .
     container_name: php-apache
     ports:
       - "8080:80"
@@ -19,10 +17,63 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: musik
       MYSQL_DATABASE: musik
-      MYSQL_USER: root
+      MYSQL_USER: musik
       MYSQL_PASSWORD: musik
     volumes:
       - db_data:/var/lib/mysql
+    networks:
+      - php-net
+
+  redis:
+    image: redis:7
+    container_name: airflow-redis
+    networks:
+      - php-net
+
+  airflow-webserver:
+    build:
+      context: ./airflow
+      dockerfile: Dockerfile
+    container_name: airflow-webserver
+    environment:
+      AIRFLOW__CORE__EXECUTOR: CeleryExecutor
+      AIRFLOW__CORE__FERNET_KEY: ''
+      AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: mysql+mysqlconnector://musik:musik@db/airflow
+      AIRFLOW__CELERY__BROKER_URL: redis://redis:6379/0
+      AIRFLOW__CELERY__RESULT_BACKEND: db+mysql+mysqlconnector://musik:musik@db/airflow
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/logs:/opt/airflow/logs
+      - ./airflow/plugins:/opt/airflow/plugins
+    ports:
+      - "8081:8080"
+    networks:
+      - php-net
+
+  airflow-scheduler:
+    build:
+      context: ./airflow
+      dockerfile: Dockerfile
+    container_name: airflow-scheduler
+    environment:
+      AIRFLOW__CORE__EXECUTOR: CeleryExecutor
+      AIRFLOW__CORE__FERNET_KEY: ''
+      AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: mysql+mysqlconnector://musik:musik@db/airflow
+      AIRFLOW__CELERY__BROKER_URL: redis://redis:6379/0
+      AIRFLOW__CELERY__RESULT_BACKEND: db+mysql+mysqlconnector://musik:musik@db/airflow
+    depends_on:
+      - airflow-webserver
+      - db
+      - redis
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/logs:/opt/airflow/logs
+      - ./airflow/plugins:/opt/airflow/plugins
     networks:
       - php-net
 
@@ -32,4 +83,3 @@ volumes:
 networks:
   php-net:
     driver: bridge
-
