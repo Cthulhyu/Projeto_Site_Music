@@ -1,10 +1,10 @@
-✅  Entrar no MySQL dentro do container
+🕹️ Entrar no MySQL dentro do container
 
 Use este comando:
 
 docker exec -it mysql-db mysql -u root -pmusik
 
-✅  Entrar no terminal do container primeiro (bash)
+🕹️  Entrar no terminal do container primeiro (bash)
 docker exec -it mysql-db bash
 
 

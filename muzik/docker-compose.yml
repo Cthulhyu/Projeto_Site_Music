@@ -1,3 +1,5 @@
+version: '3.8'
+
 services:
   apache:
     build: .
@@ -12,13 +14,15 @@ services:
       - db
 
   db:
-    image: mysql:5.7
+    image: mysql:8.0
     container_name: mysql-db
     environment:
       MYSQL_ROOT_PASSWORD: musik
       MYSQL_DATABASE: musik
       MYSQL_USER: musik
       MYSQL_PASSWORD: musik
+      MYSQL_ROOT_HOST: '%'
+    command: --sql_mode=""
     volumes:
       - db_data:/var/lib/mysql
     networks:
@@ -37,11 +41,11 @@ services:
     container_name: airflow-webserver
     environment:
       AIRFLOW__CORE__EXECUTOR: CeleryExecutor
-      AIRFLOW__CORE__FERNET_KEY: ''
+      AIRFLOW__CORE__FERNET_KEY: 'kZ8TuhOOb-iufR6CX4powdJW85FBSGaK_JWvDKfoIOY='
       AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
-      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: mysql+mysqlconnector://musik:musik@db/airflow
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: mysql+mysqlconnector://musik:musik@db/musik
       AIRFLOW__CELERY__BROKER_URL: redis://redis:6379/0
-      AIRFLOW__CELERY__RESULT_BACKEND: db+mysql+mysqlconnector://musik:musik@db/airflow
+      AIRFLOW__CELERY__RESULT_BACKEND: db+mysql+mysqlconnector://musik:musik@db/musik
     depends_on:
       - db
       - redis
@@ -61,11 +65,11 @@ services:
     container_name: airflow-scheduler
     environment:
       AIRFLOW__CORE__EXECUTOR: CeleryExecutor
-      AIRFLOW__CORE__FERNET_KEY: ''
+      AIRFLOW__CORE__FERNET_KEY: 'kZ8TuhOOb-iufR6CX4powdJW85FBSGaK_JWvDKfoIOY='
       AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
-      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: mysql+mysqlconnector://musik:musik@db/airflow
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: mysql+mysqlconnector://musik:musik@db/musik
       AIRFLOW__CELERY__BROKER_URL: redis://redis:6379/0
-      AIRFLOW__CELERY__RESULT_BACKEND: db+mysql+mysqlconnector://musik:musik@db/airflow
+      AIRFLOW__CELERY__RESULT_BACKEND: db+mysql+mysqlconnector://musik:musik@db/musik
     depends_on:
       - airflow-webserver
       - db
