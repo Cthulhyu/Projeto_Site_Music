@@ -1,4 +1,3 @@
-version: '3.8'
 
 services:
   apache:
@@ -8,29 +7,28 @@ services:
       - "8080:80"
     volumes:
       - ./src:/var/www/html
-    networks:
-      - muzik_php-net
+    networks
+      - php-net
     depends_on:
-      - mysql
+      - db
 
-  mysql:
-    image: mysql:8.0
+  db:
+    image: mysql:5.7
     container_name: mysql-db
     environment:
       MYSQL_ROOT_PASSWORD: musik
       MYSQL_DATABASE: musik
-      MYSQL_USER: musik
+      MYSQL_USER: root
       MYSQL_PASSWORD: musik
-      MYSQL_ROOT_HOST: '%'
-    command: --sql_mode=""
     volumes:
       - db_data:/var/lib/mysql
     networks:
-      - muzik_php-net
+      - php-net
 
 volumes:
   db_data:
 
 networks:
-  muzik_php-net:
-    external: true
+  php-net:
+    driver: bridge
+

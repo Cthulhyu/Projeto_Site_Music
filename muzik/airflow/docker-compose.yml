@@ -1,0 +1,58 @@
+services:
+
+  redis:
+    image: redis:7
+    networks:
+      - airflow-net
+
+  airflow-webserver:
+    build: .
+    container_name: airflow-webserver
+    depends_on:
+      - redis
+    command: webserver
+    environment:
+      AIRFLOW__CORE__EXECUTOR: CeleryExecutor
+      AIRFLOW__CORE__FERNET_KEY: "kZ8TuhOOb-iufR6CX4powdJW85FBSGaK_JWvDKfoIOY="
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: "mysql+mysqlconnector://musik:musik@mysql-db/musik"
+      AIRFLOW__CELERY__BROKER_URL: "redis://redis:6379/0"
+      AIRFLOW__CELERY__RESULT_BACKEND: "db+mysql+mysqlconnector://musik:musik@mysql-db/musik"
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./plugins:/opt/airflow/plugins
+    ports:
+      - "8081:8080"
+    networks:
+      - airflow-net
+      - muzik_php-net
+
+  airflow-scheduler:
+    build: .
+    container_name: airflow-scheduler
+    depends_on:
+      - airflow-webserver
+      - redis
+    command: scheduler
+    environment:
+      AIRFLOW__CORE__EXECUTOR: CeleryExecutor
+      AIRFLOW__CORE__FERNET_KEY: "kZ8TuhOOb-iufR6CX4powdJW85FBSGaK_JWvDKfoIOY="
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: "mysql+mysqlconnector://musik:musik@mysql-db/musik"
+      AIRFLOW__CELERY__BROKER_URL: "redis://redis:6379/0"
+      AIRFLOW__CELERY__RESULT_BACKEND: "db+mysql+mysqlconnector://musik:musik@mysql-db/musik"
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./plugins:/opt/airflow/plugins
+    networks:
+      - airflow-net
+      - muzik_php-net
+
+networks:
+  airflow-net:
+    driver: bridge
+
+  muzik_php-net:
+    external: true

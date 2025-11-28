@@ -1,7 +1,6 @@
 FROM apache/airflow:2.8.1
 
 USER root
-# Instalar dependências extras se precisar
 RUN apt-get update && apt-get install -y vim nano && rm -rf /var/lib/apt/lists/*
 
 USER airflow
