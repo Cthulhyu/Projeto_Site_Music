@@ -1,0 +1,19 @@
+[2025-12-03T03:16:41.479+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: seed_sitemusica_v2.seed_composicoes manual__2025-12-03T02:41:38.415164+00:00 [queued]>
+[2025-12-03T03:16:41.499+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: seed_sitemusica_v2.seed_composicoes manual__2025-12-03T02:41:38.415164+00:00 [queued]>
+[2025-12-03T03:16:41.500+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-12-03T03:16:41.549+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): seed_composicoes> on 2025-12-03 02:41:38.415164+00:00
+[2025-12-03T03:16:41.561+0000] {standard_task_runner.py:60} INFO - Started process 84 to run task
+[2025-12-03T03:16:41.567+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'seed_sitemusica_v2', 'seed_composicoes', 'manual__2025-12-03T02:41:38.415164+00:00', '--job-id', '55', '--raw', '--subdir', 'DAGS_FOLDER/seed_sitemusica.py', '--cfg-path', '/tmp/tmpt7jry2cj']
+[2025-12-03T03:16:41.568+0000] {standard_task_runner.py:88} INFO - Job 55: Subtask seed_composicoes
+[2025-12-03T03:16:41.700+0000] {task_command.py:423} INFO - Running <TaskInstance: seed_sitemusica_v2.seed_composicoes manual__2025-12-03T02:41:38.415164+00:00 [running]> on host 4e6f56080238
+[2025-12-03T03:16:41.998+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Gabriel' AIRFLOW_CTX_DAG_ID='seed_sitemusica_v2' AIRFLOW_CTX_TASK_ID='seed_composicoes' AIRFLOW_CTX_EXECUTION_DATE='2025-12-03T02:41:38.415164+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-12-03T02:41:38.415164+00:00'
+[2025-12-03T03:16:42.001+0000] {logging_mixin.py:188} INFO - 🔌 seed_composicoes: Conectando ao banco MySQL...
+[2025-12-03T03:16:42.820+0000] {logging_mixin.py:188} INFO -   → Composições inseridas: 500
+[2025-12-03T03:16:43.034+0000] {logging_mixin.py:188} INFO -   → Composições inseridas: 1000
+[2025-12-03T03:16:43.204+0000] {logging_mixin.py:188} INFO -   → Composições inseridas: 1500
+[2025-12-03T03:16:43.341+0000] {logging_mixin.py:188} INFO -   → Composições inseridas: 1993
+[2025-12-03T03:16:43.342+0000] {logging_mixin.py:188} INFO - ✔ seed_composicoes: Finalizado. Inseridas 1993 composições.
+[2025-12-03T03:16:43.343+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-12-03T03:16:43.361+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=seed_sitemusica_v2, task_id=seed_composicoes, execution_date=20251203T024138, start_date=20251203T031641, end_date=20251203T031643
+[2025-12-03T03:16:43.426+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-12-03T03:16:43.487+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

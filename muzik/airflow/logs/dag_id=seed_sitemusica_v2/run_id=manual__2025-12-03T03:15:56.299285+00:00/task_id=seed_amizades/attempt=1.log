@@ -1,0 +1,75 @@
+[2025-12-03T03:16:24.850+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: seed_sitemusica_v2.seed_amizades manual__2025-12-03T03:15:56.299285+00:00 [queued]>
+[2025-12-03T03:16:24.886+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: seed_sitemusica_v2.seed_amizades manual__2025-12-03T03:15:56.299285+00:00 [queued]>
+[2025-12-03T03:16:24.887+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-12-03T03:16:24.934+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): seed_amizades> on 2025-12-03 03:15:56.299285+00:00
+[2025-12-03T03:16:24.950+0000] {standard_task_runner.py:60} INFO - Started process 76 to run task
+[2025-12-03T03:16:24.960+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'seed_sitemusica_v2', 'seed_amizades', 'manual__2025-12-03T03:15:56.299285+00:00', '--job-id', '51', '--raw', '--subdir', 'DAGS_FOLDER/seed_sitemusica.py', '--cfg-path', '/tmp/tmp2ao4uijn']
+[2025-12-03T03:16:24.964+0000] {standard_task_runner.py:88} INFO - Job 51: Subtask seed_amizades
+[2025-12-03T03:16:25.266+0000] {task_command.py:423} INFO - Running <TaskInstance: seed_sitemusica_v2.seed_amizades manual__2025-12-03T03:15:56.299285+00:00 [running]> on host 4e6f56080238
+[2025-12-03T03:16:25.764+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Gabriel' AIRFLOW_CTX_DAG_ID='seed_sitemusica_v2' AIRFLOW_CTX_TASK_ID='seed_amizades' AIRFLOW_CTX_EXECUTION_DATE='2025-12-03T03:15:56.299285+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-12-03T03:15:56.299285+00:00'
+[2025-12-03T03:16:25.767+0000] {logging_mixin.py:188} INFO - 🔌 seed_amizades: Conectando ao banco MySQL...
+[2025-12-03T03:16:25.947+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 500
+[2025-12-03T03:16:26.049+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 1000
+[2025-12-03T03:16:26.160+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 1500
+[2025-12-03T03:16:26.216+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 2000
+[2025-12-03T03:16:26.319+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 2500
+[2025-12-03T03:16:26.387+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 3000
+[2025-12-03T03:16:26.436+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 3500
+[2025-12-03T03:16:26.533+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 4000
+[2025-12-03T03:16:26.614+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 4500
+[2025-12-03T03:16:26.747+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 5000
+[2025-12-03T03:16:26.884+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 5500
+[2025-12-03T03:16:26.969+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 6000
+[2025-12-03T03:16:27.040+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 6500
+[2025-12-03T03:16:27.116+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 7000
+[2025-12-03T03:16:27.180+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 7500
+[2025-12-03T03:16:27.253+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 8000
+[2025-12-03T03:16:27.324+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 8500
+[2025-12-03T03:16:27.393+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 9000
+[2025-12-03T03:16:27.515+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 9500
+[2025-12-03T03:16:27.644+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 10000
+[2025-12-03T03:16:28.026+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 10500
+[2025-12-03T03:16:28.120+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 11000
+[2025-12-03T03:16:28.209+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 11500
+[2025-12-03T03:16:28.271+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 12000
+[2025-12-03T03:16:28.319+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 12500
+[2025-12-03T03:16:28.354+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 13000
+[2025-12-03T03:16:28.392+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 13500
+[2025-12-03T03:16:28.462+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 14000
+[2025-12-03T03:16:28.503+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 14500
+[2025-12-03T03:16:28.549+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 15000
+[2025-12-03T03:16:28.593+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 15500
+[2025-12-03T03:16:28.639+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 16000
+[2025-12-03T03:16:28.685+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 16500
+[2025-12-03T03:16:28.732+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 17000
+[2025-12-03T03:16:28.791+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 17500
+[2025-12-03T03:16:28.859+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 18000
+[2025-12-03T03:16:28.904+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 18500
+[2025-12-03T03:16:28.949+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 19000
+[2025-12-03T03:16:28.994+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 19500
+[2025-12-03T03:16:29.043+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 20000
+[2025-12-03T03:16:29.091+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 20500
+[2025-12-03T03:16:29.167+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 21000
+[2025-12-03T03:16:29.209+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 21500
+[2025-12-03T03:16:29.250+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 22000
+[2025-12-03T03:16:29.281+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 22500
+[2025-12-03T03:16:29.312+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 23000
+[2025-12-03T03:16:29.346+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 23500
+[2025-12-03T03:16:29.376+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 24000
+[2025-12-03T03:16:29.423+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 24500
+[2025-12-03T03:16:29.461+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 25000
+[2025-12-03T03:16:29.504+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 25500
+[2025-12-03T03:16:29.555+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 26000
+[2025-12-03T03:16:29.602+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 26500
+[2025-12-03T03:16:29.642+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 27000
+[2025-12-03T03:16:29.682+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 27500
+[2025-12-03T03:16:29.721+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 28000
+[2025-12-03T03:16:29.774+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 28500
+[2025-12-03T03:16:29.828+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 29000
+[2025-12-03T03:16:29.866+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 29500
+[2025-12-03T03:16:29.893+0000] {logging_mixin.py:188} INFO -   → Amizades inseridas: 29639
+[2025-12-03T03:16:29.894+0000] {logging_mixin.py:188} INFO - ✔ seed_amizades: Finalizado. Inseridas 29639 amizades.
+[2025-12-03T03:16:29.895+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-12-03T03:16:29.925+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=seed_sitemusica_v2, task_id=seed_amizades, execution_date=20251203T031556, start_date=20251203T031624, end_date=20251203T031629
+[2025-12-03T03:16:29.999+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-12-03T03:16:30.051+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

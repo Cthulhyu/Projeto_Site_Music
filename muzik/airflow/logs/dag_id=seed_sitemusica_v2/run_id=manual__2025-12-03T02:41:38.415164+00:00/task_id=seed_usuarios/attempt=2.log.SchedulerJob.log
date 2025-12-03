@@ -1,0 +1,1 @@
+[2025-12-03T02:43:40.794+0000] {scheduler_job_runner.py:781} ERROR - Executor reports task instance <TaskInstance: seed_sitemusica_v2.seed_usuarios manual__2025-12-03T02:41:38.415164+00:00 [queued]> finished (failed) although the task says it's queued. (Info: None) Was the task killed externally?

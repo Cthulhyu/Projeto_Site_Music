@@ -1,0 +1,16 @@
+[2025-12-03T03:16:13.908+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: seed_sitemusica_v2.seed_musicas manual__2025-12-03T03:15:56.299285+00:00 [queued]>
+[2025-12-03T03:16:13.942+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: seed_sitemusica_v2.seed_musicas manual__2025-12-03T03:15:56.299285+00:00 [queued]>
+[2025-12-03T03:16:13.943+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-12-03T03:16:13.978+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): seed_musicas> on 2025-12-03 03:15:56.299285+00:00
+[2025-12-03T03:16:13.988+0000] {standard_task_runner.py:60} INFO - Started process 70 to run task
+[2025-12-03T03:16:13.996+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'seed_sitemusica_v2', 'seed_musicas', 'manual__2025-12-03T03:15:56.299285+00:00', '--job-id', '48', '--raw', '--subdir', 'DAGS_FOLDER/seed_sitemusica.py', '--cfg-path', '/tmp/tmp_0t7vxjr']
+[2025-12-03T03:16:13.999+0000] {standard_task_runner.py:88} INFO - Job 48: Subtask seed_musicas
+[2025-12-03T03:16:14.122+0000] {task_command.py:423} INFO - Running <TaskInstance: seed_sitemusica_v2.seed_musicas manual__2025-12-03T03:15:56.299285+00:00 [running]> on host 4e6f56080238
+[2025-12-03T03:16:14.366+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Gabriel' AIRFLOW_CTX_DAG_ID='seed_sitemusica_v2' AIRFLOW_CTX_TASK_ID='seed_musicas' AIRFLOW_CTX_EXECUTION_DATE='2025-12-03T03:15:56.299285+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-12-03T03:15:56.299285+00:00'
+[2025-12-03T03:16:14.382+0000] {logging_mixin.py:188} INFO - 🔌 seed_musicas: Conectando ao banco MySQL...
+[2025-12-03T03:16:14.744+0000] {logging_mixin.py:188} INFO -   → Inseridos músicas: 500/500
+[2025-12-03T03:16:14.745+0000] {logging_mixin.py:188} INFO - ✔ seed_musicas: Finalizado. Inseridos 500 músicas.
+[2025-12-03T03:16:14.759+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-12-03T03:16:14.804+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=seed_sitemusica_v2, task_id=seed_musicas, execution_date=20251203T031556, start_date=20251203T031613, end_date=20251203T031614
+[2025-12-03T03:16:14.900+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-12-03T03:16:15.013+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

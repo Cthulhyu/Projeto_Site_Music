@@ -1,0 +1,45 @@
+[2025-12-03T03:16:17.302+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: seed_sitemusica_v2.seed_relacoes manual__2025-12-03T03:15:56.299285+00:00 [queued]>
+[2025-12-03T03:16:17.334+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: seed_sitemusica_v2.seed_relacoes manual__2025-12-03T03:15:56.299285+00:00 [queued]>
+[2025-12-03T03:16:17.335+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-12-03T03:16:17.413+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): seed_relacoes> on 2025-12-03 03:15:56.299285+00:00
+[2025-12-03T03:16:17.425+0000] {standard_task_runner.py:60} INFO - Started process 72 to run task
+[2025-12-03T03:16:17.435+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'seed_sitemusica_v2', 'seed_relacoes', 'manual__2025-12-03T03:15:56.299285+00:00', '--job-id', '49', '--raw', '--subdir', 'DAGS_FOLDER/seed_sitemusica.py', '--cfg-path', '/tmp/tmpjug_6pmf']
+[2025-12-03T03:16:17.437+0000] {standard_task_runner.py:88} INFO - Job 49: Subtask seed_relacoes
+[2025-12-03T03:16:17.671+0000] {task_command.py:423} INFO - Running <TaskInstance: seed_sitemusica_v2.seed_relacoes manual__2025-12-03T03:15:56.299285+00:00 [running]> on host 4e6f56080238
+[2025-12-03T03:16:17.888+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Gabriel' AIRFLOW_CTX_DAG_ID='seed_sitemusica_v2' AIRFLOW_CTX_TASK_ID='seed_relacoes' AIRFLOW_CTX_EXECUTION_DATE='2025-12-03T03:15:56.299285+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-12-03T03:15:56.299285+00:00'
+[2025-12-03T03:16:17.890+0000] {logging_mixin.py:188} INFO - 🔌 seed_relacoes: Conectando ao banco MySQL...
+[2025-12-03T03:16:18.075+0000] {logging_mixin.py:188} INFO -   → Relações inseridas: 500
+[2025-12-03T03:16:18.123+0000] {logging_mixin.py:188} INFO -   → Relações inseridas: 1000
+[2025-12-03T03:16:18.163+0000] {logging_mixin.py:188} INFO -   → Relações inseridas: 1500
+[2025-12-03T03:16:18.207+0000] {logging_mixin.py:188} INFO -   → Relações inseridas: 2000
+[2025-12-03T03:16:18.249+0000] {logging_mixin.py:188} INFO -   → Relações inseridas: 2500
+[2025-12-03T03:16:18.303+0000] {logging_mixin.py:188} INFO -   → Relações inseridas: 3000
+[2025-12-03T03:16:18.367+0000] {logging_mixin.py:188} INFO -   → Relações inseridas: 3500
+[2025-12-03T03:16:18.426+0000] {logging_mixin.py:188} INFO -   → Relações inseridas: 4000
+[2025-12-03T03:16:18.472+0000] {logging_mixin.py:188} INFO -   → Relações inseridas: 4500
+[2025-12-03T03:16:18.517+0000] {logging_mixin.py:188} INFO -   → Relações inseridas: 5000
+[2025-12-03T03:16:18.570+0000] {logging_mixin.py:188} INFO -   → Relações inseridas: 5500
+[2025-12-03T03:16:18.611+0000] {logging_mixin.py:188} INFO -   → Relações inseridas: 6000
+[2025-12-03T03:16:18.676+0000] {logging_mixin.py:188} INFO -   → Relações inseridas: 6500
+[2025-12-03T03:16:18.705+0000] {logging_mixin.py:188} INFO -   → Relações inseridas: 7000
+[2025-12-03T03:16:18.743+0000] {logging_mixin.py:188} INFO -   → Relações inseridas: 7500
+[2025-12-03T03:16:18.779+0000] {logging_mixin.py:188} INFO -   → Relações inseridas: 8000
+[2025-12-03T03:16:18.826+0000] {logging_mixin.py:188} INFO -   → Relações inseridas: 8500
+[2025-12-03T03:16:18.858+0000] {logging_mixin.py:188} INFO -   → Relações inseridas: 9000
+[2025-12-03T03:16:18.899+0000] {logging_mixin.py:188} INFO -   → Relações inseridas: 9500
+[2025-12-03T03:16:18.949+0000] {logging_mixin.py:188} INFO -   → Relações inseridas: 10000
+[2025-12-03T03:16:19.001+0000] {logging_mixin.py:188} INFO -   → Relações inseridas: 10500
+[2025-12-03T03:16:19.044+0000] {logging_mixin.py:188} INFO -   → Relações inseridas: 11000
+[2025-12-03T03:16:19.094+0000] {logging_mixin.py:188} INFO -   → Relações inseridas: 11500
+[2025-12-03T03:16:19.138+0000] {logging_mixin.py:188} INFO -   → Relações inseridas: 12000
+[2025-12-03T03:16:19.178+0000] {logging_mixin.py:188} INFO -   → Relações inseridas: 12500
+[2025-12-03T03:16:19.268+0000] {logging_mixin.py:188} INFO -   → Relações inseridas: 13000
+[2025-12-03T03:16:19.323+0000] {logging_mixin.py:188} INFO -   → Relações inseridas: 13500
+[2025-12-03T03:16:19.366+0000] {logging_mixin.py:188} INFO -   → Relações inseridas: 14000
+[2025-12-03T03:16:19.420+0000] {logging_mixin.py:188} INFO -   → Relações inseridas: 14500
+[2025-12-03T03:16:19.464+0000] {logging_mixin.py:188} INFO -   → Relações inseridas: 14904
+[2025-12-03T03:16:19.466+0000] {logging_mixin.py:188} INFO - ✔ seed_relacoes: Finalizado. Inseridas 14904 relações usuário-música.
+[2025-12-03T03:16:19.467+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-12-03T03:16:19.505+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=seed_sitemusica_v2, task_id=seed_relacoes, execution_date=20251203T031556, start_date=20251203T031617, end_date=20251203T031619
+[2025-12-03T03:16:19.618+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-12-03T03:16:19.696+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

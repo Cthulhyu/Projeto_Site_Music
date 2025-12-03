@@ -16,15 +16,15 @@ services:
   mysql:
     image: mysql:8.0
     container_name: mysql-db
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: musik
-      MYSQL_DATABASE: musik
+      MYSQL_DATABASE: sitemusica
       MYSQL_USER: musik
       MYSQL_PASSWORD: musik
-      MYSQL_ROOT_HOST: '%'
-    command: --sql_mode=""
     volumes:
       - db_data:/var/lib/mysql
+      - ./mysql/init:/docker-entrypoint-initdb.d
     networks:
       - muzik_php-net
 
